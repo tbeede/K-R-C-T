@@ -11,31 +11,5 @@
 
 int main(int argc, char **argv) 
 {
-	FILE *fp;
-	char *file_name;
-	if (argc < 2) {
-		file_name = "two.c";
-	} else {
-		file_name = argv[1];
-	}
-
-   	if( (fp = fopen(file_name, "r")) == NULL ) 
-   	{
-      		perror("Error while opening the file.\n");
-      		exit(EXIT_FAILURE);
-   	}
-	char c;
-	while( ( c = fgetc(fp) ) != EOF ) {
-		if (c == '\t') {
-			printf("\\t");
-		} else if (c == '\\') {
-			printf("\\\\");
-		} else if (c == '\b') {
-			printf("\\b");
-		} else {
-			putchar(c);
-		}
-	}
- 	fclose(fp);
 	return 0;
 }
