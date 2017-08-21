@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 	FILE *fp;
 	char* file_name;
 	if (argc < 2) {
-		file_name = "read-file-template.c";
+		file_name = "Makefile";
 	} else {
 		file_name = argv[1];
 	}
@@ -23,8 +23,7 @@ int main(int argc, char **argv)
 	char c;
 
 	while ((c = fgetc(fp)) != EOF) {
-
-
+		//THIS IS WHERE YOU OPERATE ON THE DATA LINE BY LINE
 	}
 
 	fclose(fp);
