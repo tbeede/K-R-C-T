@@ -1,9 +1,9 @@
 # Chapter One: A Tutorial Introduction
 
-- [ ] One
-- [ ] Three
-- [ ] Four
-- [ ] Five
+- [x] One
+- [x] Three
+- [x] Four
+- [x] Five
 - [ ] Ten
 - [ ] Twelve
 - [ ] Fifteen
