@@ -29,6 +29,9 @@ fifteen: fifteen.c
 nineteen: nineteen.c
 	$(CC) $(CFLAGS) nineteen.c -o nineteen.o
 
+arrayexample: arrayexample.c
+	$(CC) $(CFLAGS) arrayexample.c -o arrayexample.o
+
 clean:
 	rm -f *.o *.gz *~ *.out
 

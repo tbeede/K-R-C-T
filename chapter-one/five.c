@@ -7,6 +7,8 @@
  * in reverse order, that is, for 300 degrees to 0.
  */
 
+
+
 int tim() 
 {
 	int fht;
@@ -14,6 +16,10 @@ int tim()
   	for (fht = 300; fht >= 0; fht = fht - 20)
     	printf("%3d\t\t | \t%6.1f \n", fht, (5.0/9.0) * (fht-32.0));
 	return 0;
+}
+
+ int fToC(int fahr) {
+	return (5.0/9.0) * (fahr-32.0);
 }
 
 int clay() 
@@ -28,12 +34,16 @@ int clay()
 	printf("Fahr Celsius\n");
 	fahr = upper;
 	while (fahr >= lower) {
-		celsius = (5.0/9.0) * (fahr-32.0);
+		celsius = fToC(fahr);
 		printf("%3.0f %6.1f\n",fahr,celsius);
 		fahr = fahr - step;
 	}
 	return 0;
 }
+
+
+
+
 
 int main()
 {
@@ -42,3 +52,5 @@ int main()
 	printf("Your solution:\n");
 	tim();
   }
+
+ 

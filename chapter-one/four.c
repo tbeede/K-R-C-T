@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /*
  * Exercise 1-4 of The C Programming Language
