@@ -7,8 +7,6 @@
  * in reverse order, that is, for 300 degrees to 0.
  */
 
-
-
 int tim() 
 {
 	int fht;
@@ -18,12 +16,13 @@ int tim()
 	return 0;
 }
 
- int fToC(int fahr) {
+int fToC(int fahr) {
 	return (5.0/9.0) * (fahr-32.0);
 }
 
 int clay() 
 {
+	
 	float fahr, celsius;
 	int lower, upper, step;
 
@@ -53,4 +52,3 @@ int main()
 	tim();
   }
 
- 
