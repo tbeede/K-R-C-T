@@ -1,13 +1,15 @@
 #include <stdio.h>
 
 //TODO: WRITE A FACTORIAL THAT INCREMENTS A VALUE BY ONE EACH TIME AND STARTS WITH ZERO
-//EXAMPLE: fac(10) returns 10
-//fac(5) returns 5
-//fac(1) returns 1
-int change(int myValue) {
-	myValue++; //INCREMENT BY ONE
-	return myValue;
-}
+//EXAMPLE: increment(10) returns 10
+//increment(5) returns 5
+//increment(1) returns 1
+
+int increment(int i) {
+	//BASE CASE
+
+	//NORMAL RETURN VALUE
+} 
 
 int fac(int val) {
 	//BASE CASE
@@ -18,6 +20,13 @@ int fac(int val) {
 	printf("%i * (",val );
 	return val * fac(val - 1);
 }
+
+int change(int myValue) {
+	myValue++; //INCREMENT BY ONE
+	return myValue;
+}
+
+
 
 int main(int argc, char **argv) 
 {
