@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-
+//TODO: WRITE A FACTORIAL THAT INCREMENTS A VALUE BY ONE EACH TIME AND STARTS WITH ZERO
+//EXAMPLE: fac(10) returns 10
+//fac(5) returns 5
+//fac(1) returns 1
 int change(int myValue) {
 	myValue++; //INCREMENT BY ONE
 	return myValue;
