@@ -4,7 +4,7 @@
 - [x] Three
 - [x] Four
 - [x] Five
-- [ ] Ten
-- [ ] Twelve
-- [ ] Fifteen
+- [x] Ten
+- [x] Twelve
+- [x] Fifteen
 - [ ] Nineteen
