@@ -1,7 +1,7 @@
 # The C Programming Language
 Go over the legendary k&amp;r exercises with a [bonafide SE].
 
-- [ ] Chapter 1: A Tutorial Introduction
+- [x] Chapter 1: A Tutorial Introduction
 - [ ] Chapter 2: Types, Operators, and Expressions
 - [ ] Chapter 3: Control Flow
 - [ ] Chapter 4: Functions and Program Structure
