@@ -21,15 +21,20 @@ int main(int argc, char **argv)
 
 	putchar('s');
 	putchar('1');
+	putchar(':');
+	putchar(' ');
 	read_line(s1, MAXLINE);
 
 	putchar('s');
 	putchar('2');
+	putchar(':');
+	putchar(' ');
 	read_line(s2, MAXLINE);
 
 	squeeze(s1, s2);
 
 	printf("\n%s\n", s1);
+	return 0;
 }
 
 /* read_line: read a string into array; return string length */
@@ -51,33 +56,13 @@ void squeeze(char s1[], char s2[])
 {
 	int i, j, k;
 
-k = 0;
-	for (i = j = 0; s1[i] != '\0'; i++)
+	k = 0;
+	for (i = j = 0; s1[i] != '\0'; i++) {
 		if (s1[i] != s2[j])
-			s1[k++] = s1[i];
+		++j;
+		if(s2[j]=='\0')
+		s1[k++] = s1[i];
+	}
+	s1[k] = '\0';
 
-	// j = 0;
-	// k = 0;
-	// for (i = 0; s1[i] != '\0'; i++)
-	// 	if ((s1[i] != s2[j]) && (s2[j] == '\0')){
-	// 		//k = s2[j] - s1[i];
-	// 		s1[k] = s1[i];
-	// 		k++;
-	// }
 }
-
-// void squeeze(char s1[],char s2[])
-// {
-// 	int i, j, k;
-// 	k = 0;
-//
-// 	for(i = 0; s1[i] != '\0';++i)
-// 	{
-// 		for(j = 0; (s1[i] != s2[j]) && s2[j] != '\0'; ++j)
-// 		;
-// 		if(s2[j] == '\0')
-// 		s1[k++] = s1[i];
-// 	}
-//
-// 	s1[k] = '\0';
-// }
