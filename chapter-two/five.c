@@ -21,40 +21,21 @@ int main(int argc, char **argv)
 
 	char s1[MAXLINE], s2[MAXLINE];
 
-	putchar('s');
-	putchar('1');
-	putchar(':');
-	putchar(' ');
-	read_line(s1, MAXLINE);
+	printf("s1: ");
+	scanf("%s", s1);
 
-	putchar('s');
-	putchar('2');
-	putchar(':');
-	putchar(' ');
-	read_line(s2, MAXLINE);
+	printf("s2: ");
+	scanf("%s", s2);
 
 	printf("\n%d\n", any(s1, s2));
 	return 0;
 }
 
-/* read_line: read a string into array; return string length */
-int read_line(char s[], int lim)
-{
-	int c, i;
-
-	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-	s[i] = c;
-	if (c == '\n')
-	s[i++] = c;
-
-	s[i] = '\0';
-	return i;
-}
-
 int any(char s1[], char s2[])
 {
 	int i, j, k;
-
+	//UNMAINTAINABLE CODE
+	//NO COMMENTS, NO BRACKETS, NO INDENTATION
 	for (i = 0; s1[i] != '\0'; i++)
 	for (k = 0; s2[k] != '\0'; k++)
 	if (s2[k] == s1[i])
