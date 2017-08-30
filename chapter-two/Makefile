@@ -17,7 +17,7 @@ four: four.c
 five: five.c
 	$(CC) $(CFLAGS) five.c -o five.o
 
-ten: eight.c
+eight: eight.c
 	$(CC) $(CFLAGS) eight.c -o eight.o
 
 twelve: nine.c
