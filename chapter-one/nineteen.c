@@ -55,14 +55,13 @@ void reverses(char array[])
 		char c;
 
     /* get length of string */
-    for (len = 0; array[len] != '\0' && array[len] != '\n'; ++len)
-        ;
+    for (len = 0; array[len] != '\0' && array[len] != '\n'; ++len);
 
-		/* reverse string */
+	/* reverse string */
     for (i = 0; i < len; ++i) {
-			c = array[i];
+		c = array[i];
         array[i] = array[len - 1];
-				array[len - 1] = c;
+		array[len - 1] = c;
         --len;
     }
 }
