@@ -35,10 +35,11 @@ int main(int argc, char **argv)
 void squeeze(char s1[], char s2[])
 {
 	int i, j, k, same;
-
 	for (i = j = 0; s1[i] != '\0'; i++) {
 		same = 0;
+
 		for (k = 0; s2[k] != '\0' && ! same; k++)
+			//WHY TWO IF STATEMENTS?
 			if (s2[k] == s1[i])
 				same = 1;
 			if(! same)
@@ -46,3 +47,4 @@ void squeeze(char s1[], char s2[])
 	}
 	s1[j] = '\0';
 }
+

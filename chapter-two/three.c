@@ -12,37 +12,20 @@
 #define MAXLENGTH 100 /* max input line size */
 
 int read_line(char line[], int maxline);
-int htoi(char hexstr[]);
+int htoi(char hexstr[], int base);
 
 int main(int argc, char **argv)
 {
   char line[MAXLENGTH];  /* current input line */
-
-  printf("\nInput hex: ");
+  int base = 20;
+  printf("\nInput base %i number: ",base);
   scanf("%s", line);
-  printf("\nThe conversion is: %d\n", htoi(line));
+  printf("\nThe conversion is: %d\n", htoi(line,base));
   return 0;
 }
 
-/* read_line: read a string into array; return string length */
-int read_line(char array[], int lim)
-{
-
-  int c, i;
-
-  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-  array[i] = c;
-
-  if (c == '\n')
-  array[i] = c;
-  ++i;
-
-  array[i] = '\0';
-  return i;
-}
-
 /* htoi:  convert s to integer */
-int htoi(char s[])
+int htoi(char s[], int base)
 {
   int hex, i, n, c;
 
@@ -61,8 +44,7 @@ int htoi(char s[])
     else
       return n;
 
-    n = 16 * n + hex;
+    n = base * n + hex;
   }
   return n;
-
 }
