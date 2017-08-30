@@ -1,9 +1,9 @@
 # Chapter Two: Types, Operators, and Expressions
 
-- [ ] One
-- [ ] Three
-- [ ] Four
-- [ ] Five
+- [x] One
+- [x] Three
+- [x] Four
+- [x] Five
 - [ ] Eight
 - [ ] Nine
 - [ ] Ten
