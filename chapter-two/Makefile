@@ -20,10 +20,10 @@ five: five.c
 eight: eight.c
 	$(CC) $(CFLAGS) eight.c -o eight.o
 
-twelve: nine.c
+nine: nine.c
 	$(CC) $(CFLAGS) nine.c -o nine.o
 
-fifteen: ten.c
+ten: ten.c
 	$(CC) $(CFLAGS) ten.c -o ten.o
 
 clean:
