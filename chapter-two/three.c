@@ -19,7 +19,7 @@ int main(int argc, char **argv)
   char line[MAXLENGTH];  /* current input line */
 
   printf("\nInput hex: ");
-  read_line(line, MAXLENGTH);
+  scanf("%s", line);
   printf("\nThe conversion is: %d\n", htoi(line));
   return 0;
 }
