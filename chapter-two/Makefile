@@ -3,7 +3,7 @@ CFLAGS=-O2 -Wall
 
 all: chapter-two
 
-chapter-two: one three four five eight nine ten
+chapter-two: one three four five eight nine ten scratchpad
 
 one: one.c
 	$(CC) $(CFLAGS) one.c -o one.o
@@ -25,6 +25,9 @@ nine: nine.c
 
 ten: ten.c
 	$(CC) $(CFLAGS) ten.c -o ten.o
+
+scratchpad: scratchpad.c
+	$(CC) $(CFLAGS) scratchpad.c -o scratchpad.o
 
 clean:
 	rm -f *.o *.gz *~ *.out

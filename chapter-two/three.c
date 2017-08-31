@@ -17,28 +17,10 @@ int htoi(char hexstr[]);
 int main(int argc, char **argv)
 {
   char line[MAXLENGTH];  /* current input line */
-
-  printf("\nInput hex: ");
-  read_line(line, MAXLENGTH);
+  printf("\nInput hex number: ");
+  scanf("%s", line);
   printf("\nThe conversion is: %d\n", htoi(line));
   return 0;
-}
-
-/* read_line: read a string into array; return string length */
-int read_line(char array[], int lim)
-{
-
-  int c, i;
-
-  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-  array[i] = c;
-
-  if (c == '\n')
-  array[i] = c;
-  ++i;
-
-  array[i] = '\0';
-  return i;
 }
 
 /* htoi:  convert s to integer */
@@ -64,5 +46,4 @@ int htoi(char s[])
     n = 16 * n + hex;
   }
   return n;
-
 }
