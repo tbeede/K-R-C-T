@@ -1,8 +1,5 @@
-# Chapter Two: Types, Operators, and Expressions
+# Chapter Three: Control Flow
 
-- [x] One
-- [X] Three
-- [x] Four
-- [x] Five
-- [ ] Nine
-- [ ] Ten
+- [ ] One
+- [ ] Three
+- [ ] Five
