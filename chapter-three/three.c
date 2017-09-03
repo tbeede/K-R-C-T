@@ -9,6 +9,7 @@
 * Allow for letters of either case and digits,
 * and be prepared to handle cases like a-b-c and a-z0-9 and -a-z.
 * Arrange that a leading or trailing - is taken literally.
+*
 */
 
 #define MAXLINE 100 /* max input line size */
@@ -32,16 +33,21 @@ void expand(char s1[], char s2[])
 {
   int c, i, j;
 
-  i = j = 0;
+  i = 0;
 
+  // get character (c) and proceed through checks
   while ((c = s1[i]) != '\0') {
     i++;
-    if (s1[i] == '-' && s1[i - 1] >= c) {
+    // check if s1 equals a '-' and then keep going to get the next character in string
+    if (s1[i] == '-' && s1[i + 1] >= c) {
       i++;
-      for (j = 0; (c <= s1[i]) != '\0'; j++) {
+      /* iterate through rest of characters to store in s2--note: using 'c <='  instead of 'c <'
+      has the undesireable effect of appending an extra character in the returned s2 string */
+      for (j = 0; (c < s1[i]) != '\0'; j++) {
         s2[j] = c++;
       }
     }
+    // without incrementing through j, does not append last character in s2 string
     else {
       s2[j++] = c;
       }
