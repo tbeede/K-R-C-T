@@ -17,7 +17,7 @@ void expand(char s1[], char s2[]);
 
 int main(int argc, char **argv)
 {
-  char* s1, s2[100]; //* = "foo";
+  char* s1, s2[100];
 
 if( argc < 2 ) {
   printf("Usage: \n./three a-z");
