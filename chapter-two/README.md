@@ -4,5 +4,5 @@
 - [X] Three
 - [x] Four
 - [x] Five
-- [ ] Nine
-- [ ] Ten
+- [x] Nine
+- [x] Ten
