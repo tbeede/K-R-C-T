@@ -1,9 +1,9 @@
 CC=gcc
 CFLAGS=-O2 -Wall
 
-all: chapter-one
+all: chapter-three
 
-Chapter-three: one three five
+chapter-three: one three five
 
 one: one.c
 	$(CC) $(CFLAGS) one.c -o one.o

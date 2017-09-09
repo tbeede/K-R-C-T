@@ -16,19 +16,21 @@ void expand(char s1[], char s2[]);
 
 int main(int argc, char **argv)
 {
-  char s1[100], s2[100];
+  char s1, s2* = "foo";
 
-  if( argc == 2 ) {
-   printf("The argument supplied is %s\n", argv[1]);
- }
- else if( argc > 2 ) {
-   printf("Too many arguments supplied.\n");
- }
- else {
-   printf("One argument expected.\n");
- }
 
-  printf("%s s1: ", s1[**argv]);
+if( argc < 2 ) {
+  printf("Usage: \n./three a-z");
+  exit(1);
+ }
+  s1 = argv[1];
+ //NOT A CASE YOU NEED TO HANDLE
+ // else if( argc > 2 ) {
+ //   printf("Too many arguments supplied.\n");
+ // }
+ 
+
+  printf("%s s1: ", s1);
 
   expand(s1, s2);
   printf("\n%s s2: \n", s2);
