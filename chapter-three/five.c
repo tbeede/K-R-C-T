@@ -18,15 +18,12 @@ int main(int argc, char **argv)
 	int number, binary, hex;
 	char str[100];
 
-	if( argc < 2 ) {
-	  printf("Usage: \n./five (number)");
-	  exit(1);
-	 }
-
-	number = *argv[1];
+	//NOTE: How do you make this 'char **argv' when it's an int?
+	number = 10;
   binary = 2;
 	hex = 16;
 
+	// char s[] = str. This is the string that is returned
   itob(number, str, binary);
   printf("\nbinary: %s\n", str);
 
@@ -35,7 +32,10 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-/* modified the function 'itoa' from page 64 */
+/* modified the function 'itoa' from page 64
+* 'n' = number to convert, 'char s[]'' is converted number,
+* int 'base' is the base to convert to
+*/
 void itob(int n, char s[], int base)
 {
 	int i, c, sign;
@@ -45,18 +45,40 @@ void itob(int n, char s[], int base)
 	}
 	i = 0;
 	do {
-		/* get next digit--change '10' to variable 'base'
-		* to represent any base instead of decimal only;
-		* if number is less than 10, return number, else
-		* subtract 10 and add 'A' to handle hexadecimal */
-		// c = n % base;
-		s[i++] = (c = n % base, (c <= 9)) ? c + '0' : c + 'A' - 10;
+		/* original code used ternary; split up to make more readable
+		* s[i++] = (c = n % base, (c <= 9)) ? c + '0' : c + 'A' - 10;
+		*/
+		c = n % base;
+		if (c <= 9) {
+			s[i++] = c + '0';
+		}
+		else {
+			s[i++] = c + 'A' - 10;
+		}
 	} while ((n /= base) > 0);
 	if (sign < 0) {
 		s[i++] = '-';
 	}
 	s[i] = '\0';
 	reverse(s);
+}
+
+/* ORIGINAL ITOA FUNCTION FOR REFERENCE
+"itoa:  convert n to characters in s" */
+void itoa(int n, char s[])
+{
+		int i, sign;
+
+		if ((sign = n) < 0)  /* record sign */
+				n = -n;          /* make n positive */
+		i = 0;
+		do {       /* generate digits in reverse order */
+				s[i++] = n % 10 + '0';   /* get next digit */
+		} while ((n /= 10) > 0);     /* delete it */
+		if (sign < 0)
+				s[i++] = '-';
+		s[i] = '\0';
+		reverse(s);
 }
 
 /* reverse: reverse string s in place; taken from page 62 */
