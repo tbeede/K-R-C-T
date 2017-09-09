@@ -1,5 +1,5 @@
 # Chapter Three: Control Flow
 
-- [ ] One
-- [ ] Three
-- [ ] Five
+- [x] One
+- [x] Three
+- [x] Five
