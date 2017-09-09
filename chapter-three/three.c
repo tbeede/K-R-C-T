@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
 * Exercise 3-3 of The C Programming Language
@@ -16,25 +17,20 @@ void expand(char s1[], char s2[]);
 
 int main(int argc, char **argv)
 {
-  char s1, s2* = "foo";
-
+  char* s1, s2[100]; //* = "foo";
 
 if( argc < 2 ) {
   printf("Usage: \n./three a-z");
   exit(1);
  }
-  s1 = argv[1];
- //NOT A CASE YOU NEED TO HANDLE
- // else if( argc > 2 ) {
- //   printf("Too many arguments supplied.\n");
- // }
- 
+ s1 = argv[1];
 
-  printf("%s s1: ", s1);
+ printf("%s ", s1);
 
-  expand(s1, s2);
-  printf("\n%s s2: \n", s2);
-  return 0;
+ expand(s1, s2);
+
+ printf("\n%s \n", s2);
+ return 0;
 }
 
 /* Take string in s1 and expand in s2 */
