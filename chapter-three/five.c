@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include<string.h>
+#include <stdlib.h>
 
 /*
 * Exercise 3-5 of The C Programming Language
@@ -9,17 +10,20 @@
 * formats s as a hexadecimal integer in s.
 */
 
-#define MAXLINE 100
-
 void itob(int n, char s[], int base);
 void reverse(char s[]);
 
 int main(int argc, char **argv)
 {
 	int number, binary, hex;
-	char str[MAXLINE];
+	char str[100];
 
-	number = 10;
+	if( argc < 2 ) {
+	  printf("Usage: \n./five (number)");
+	  exit(1);
+	 }
+
+	number = *argv[1];
   binary = 2;
 	hex = 16;
 
