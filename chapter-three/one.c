@@ -14,6 +14,7 @@ int binsearch(int x, int v[], int n);
 int main(int argc, char **argv)
 {
 	// return '2' (x) from the array where n is the length of the array
+	//NOTE: HOW DO YOU MAKE arr[] 'char **argv' WHEN IT'S AN INT?
 	int arr[]={1,2,3,5,13};
 	int x = 2;
 	int n = 4;
