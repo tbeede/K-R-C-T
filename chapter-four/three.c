@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> /* for atof */
 #include <ctype.h>
+#include <math.h> /* for fmod */
 
 /*
 * Exercise 4-3 of The C Programming Language
@@ -29,7 +30,8 @@ char buf[BUFSIZE]; /* buffer for ungetch */
 int bufp = 0;     /* next free position in buf */
 
 /* reverse Polish calculator */
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   int type;
   double op2;
   char s[MAXOP];
@@ -37,41 +39,48 @@ int main(int argc, char **argv) {
   while ((type = getop(s)) != EOF) {
     switch (type) {
       case NUMBER:
-      push(atof(s));
-      break;
+        push(atof(s));
+        break;
       case '+':
-      push(pop() + pop());
-      break;
+        push(pop() + pop());
+        break;
       case '*':
-      push(pop() * pop());
-      break;
+        push(pop() * pop());
+        break;
       case '-':
-      op2 = pop();
-      push(pop() - op2);
-      break;
+        op2 = pop();
+        push(pop() - op2);
+        break;
       case '/':
-      op2 = pop();
-      if (op2 != 0.0)
-      push(pop() / op2);
-      else
-      printf("error: zero divisor\n");
-      break;
+        op2 = pop();
+        if (op2 != 0.0) {
+          push(pop() / op2);
+        }
+        else {
+          printf("error: zero divisor! \n");
+        }
+        break;
+      /* fiddled with this and googled the error, found this post:
+      * https://stackoverflow.com/questions/3902399/error-invalid-operands-to-binary-have-double-and-double
+      * that recommended using 'fmod' in the math.h library */
       case '%':
-          op2 = pop();
-          if (op2 != 0.0)
-              push(pop() - op2);
-          else
-              printf("error: zero divisor\n");
-          break;
+        op2 = pop();
+        if (op2 != 0.0) {
+          push(fmod(pop(), op2));
+        }
+        else {
+          printf("error: zero divisor\n");
+        }
+        break;
       case '\n':
-      printf("\t%.8g\n", pop());
-      break;
+        printf("\t%.8g\n", pop());
+        break;
       default:
-      printf("error: unknown command %s\n", s);
-      break;
+        printf("error: unknown command! %s\n", s);
+        break;
+      }
     }
-  }
-  return 0;
+    return 0;
 }
 
 /* push: push f onto value stack */
@@ -135,7 +144,7 @@ int getch(void)
 void ungetch(int c)
 {
   if (bufp >= BUFSIZE) {
-    printf("ungetch: too many characters\n");
+    printf("ungetch: too many characters! \n");
   }
   else {
     buf[bufp++] = c;
