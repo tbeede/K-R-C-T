@@ -12,10 +12,8 @@ void itoar(int n, char s[]);
 
 int main(int argc, char **argv)
 {
-	int n;
 	char s[100];
-
-	n = -1977;
+	int n = atoi(argv[1]);
 
 	itoar(n, s);
 	printf("%s\n", s);
