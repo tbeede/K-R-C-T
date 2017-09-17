@@ -12,14 +12,13 @@
 
 int main(int argc, char **argv)
 {
-	char x, y;
+	int x = atoi(argv[1]);
+	int y = atoi(argv[2]);
 
-	x = '1', y = '2';
-
-	printf("x = %c \t y = %c\n", x, y);
+	printf("x = %d \t y = %d\n", x, y);
 
 	swap(char, x, y);
 
-	printf("x = %c \t y = %c\n", x, y);
+	printf("x = %d \t y = %d\n", x, y);
 	return 0;
 }
