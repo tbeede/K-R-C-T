@@ -13,9 +13,13 @@
 int main(int argc, char **argv)
 {
 	char x, y;
-	x = 'a', y = 'b';
+
+	x = '1', y = '2';
+
 	printf("x = %c \t y = %c\n", x, y);
+
 	swap(char, x, y);
+
 	printf("x = %c \t y = %c\n", x, y);
 	return 0;
 }
