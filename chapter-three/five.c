@@ -18,8 +18,7 @@ int main(int argc, char **argv)
 	int number, binary, hex;
 	char str[100];
 
-	//NOTE: How do you make this 'char **argv' when it's an int?
-	number = 10;
+	number = atoi(argv[1]);
   binary = 2;
 	hex = 16;
 
