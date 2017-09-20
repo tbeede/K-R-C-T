@@ -18,9 +18,25 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+void swap(char s[], int i, int j) {
+	char c;
+	c = s[i];
+	s[i] = s[j];
+	s[j] = c;
+}
+
+void reverseHelper(char s[], int i) {
+	if (i == strlen(s)/2)
+		return;
+
+	swap(s,i,strlen(s) - 1 - i);
+
+	reverseHelper(s,++i);
+}
+
 void reverse(char s[])
 {
-	
+	reverseHelper(s, 0);
 }
 
 /* original reverse: reverse string s in place; taken from page 62 */
