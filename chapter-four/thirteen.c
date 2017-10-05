@@ -7,32 +7,49 @@
 *
 * Write a recursive version of the function reverse(s),
 * which reverses the string s in place.
+*
+*
+
+12345 -> 54321
+
+12345
+52341
+54321
+*
 */
 
 void reverse(char s[]);
+void reverseHelper(char s[], int i, int j);
+void swap(char s[], int i, int j);
 
 int main(int argc, char **argv)
 {
 	reverse(argv[1]);
-	printf("%s\n", argv[1]);
+	printf("REVERSE ME!!! %s\n", argv[1]);
 	return 0;
 }
 
-
-
 void reverse(char s[])
 {
-	printf("reverse me! %s",s);
+	reverseHelper(s,0,strlen(s) - 1);
 }
 
-/* original reverse: reverse string s in place; taken from page 62 */
-void oreverse(char s[])
-{
-	int c, i, j;
-
-	for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
-		c = s[i];
-		s[i] = s[j];
-		s[j] = c;
+//hard code values into swap that will give us the answer--no parameters
+void reverseHelper(char s[], int i, int j) {
+	if (i >= j) {
+		return;
 	}
+	swap(s,i,j);
+	reverseHelper(s,i + 1,j - 1);
+}
+
+//given a string and two indeces I will swap the characters at those indeces
+void swap(char s[], int i, int j) {
+	char stow;
+	//12345
+	stow = s[i];
+	//52345
+	s[i] = s[j];
+	//52341
+	s[j] = stow;
 }
