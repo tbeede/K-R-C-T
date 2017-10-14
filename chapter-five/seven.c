@@ -59,7 +59,7 @@ int readlines(char *lineptr[], char linearray[], int maxlines)
 		else {
 			line[len - 1] = '\0'; /* delete newline */
 			strcpy(p, line);
-			lineptr[nlines++] = p; /* again, replace p with new pointer */
+			lineptr[nlines++] = p;
 		}
 	}
 	return nlines;
