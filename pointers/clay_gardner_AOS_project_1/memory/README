@@ -1,0 +1,44 @@
+Clay Gardner
+clay.gardner@gatech.edu
+
+System information:
+
+MacBook Pro (Early 2015)
+Processor: 2.7 GHz Intel Core i5
+Memory: 8 GB 1867 MHz DDR3
+VMWare Fusion 7 with 4GB memory 
+Ubuntu 16.04
+g++ compiler
+
+Testing:
+How to compile the source file:
+make 
+
+How to run the program (my make file is already set up to pass in 12 as the argument):
+make run
+
+How to check the result:
+Print statements that come out each half second. They show the current percentage usage of available memory per domain and how much memory is being swapped between domains.
+
+Algorithm:
+I use these percentages in my algorithm:
+0-50%, 50%-70%, 80%-90%, and 90% - 100%.
+
+First step is to sort all the domains by percentage use of available memory. 
+Then I go through a loop that decides if you can give up memory or need it(you must not take more than your maximum memory or give away more than you minimum memory--25% of maximum memory). That is decided like so:
+-  x < 50% memory: The domain can give away 25% of its current balloon.
+-  50% <= x < 70% memory: The domain can give away 12.5% of its current balloon.
+-  70% <= x < 90% memory: The domain can take 6.25% of its current balloon.
+-  90% <= x memory: The domain can take 12.5% of its current balloon.
+
+These percentages worked well on my computer, but on a more powerful computer it would make sense to have more spread out numbers like 0-30%, 30%-50%, 60%-90%, and 90% - 100%. I decided to be able to take less memory than you can give so that if there are multiple stressed domains a single one does not hog all the available memory and it gets spread between them. 
+
+Then I go through another loop that decides how much I can 'transfer' between my VMs, this will set a transfer attribute of each domain and depending on where the percentage of memory usage is the virDomainSetMemoryFlags function will either add that transfer amount or subtract it from the balloon. This is the end of my algorithm!
+
+NOTE: THIS FUNCTION DOES NOT PULL ANY MEMORY FROM THE HOST. IT ASSUMES THAT THE HOST HAS GIVEN ENOUGH MEMORY TO THE VMS FOR THEM TO BE ABLE TO RUN WELL.
+
+
+
+
+
+

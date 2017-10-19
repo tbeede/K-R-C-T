@@ -1,0 +1,25 @@
+Clay Gardner
+clay.gardner@gatech.edu
+
+System information:
+
+MacBook Pro (Early 2015)
+Processor: 2.7 GHz Intel Core i5
+Memory: 8 GB 1867 MHz DDR3
+VMWare Fusion 7 with 4GB memory 
+Ubuntu 16.04
+g++ compiler
+
+Testing:
+How to compile the source file:
+make 
+
+How to run the program (my make file is already set up to pass in 12 as the argument):
+make run
+
+How to check the result:
+Print statements that come out each second that show the pCPU usage for each pCPU and if there was a change in pinning it will print which vCPU from which domain was pinned to a new pCPU.
+
+Algorithm:
+My algorithm was designed to assign each VCPU to the PCPU with the least amount of load currently on it. I started with a double array with an entry for each PCPU. I iterated over a sorted list of the VCPUs in descending order (most CPU intensive to least CPU intensive) and for each VCPU I pinned it to the PCPU with the lowest value in the array I previously mentioned. So the first, most CPU intense VCPU gets pinned to the first PCPU and then the value of that PCPU in the array in increased by how many resources the VCPU used. Then the next VCPU is pinned to the next PCPU and that PCPU's value is increased and so on until each PCPU has a couple different VCPUs pinned to it, all with varying intensity. My algorithm is on lines 182 - 211.
+
