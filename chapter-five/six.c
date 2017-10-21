@@ -19,7 +19,7 @@ void reverse(char *s);
 int main(int argc, char **argv)
 {
 	char *s = argv[1];
-	reverse(s);												//THIS WORKS NOW
+	reverse(s);				//THIS WORKS NOW
 	printf("REVERSE ME!!! %s\n", s);
 	return 0;
 }
