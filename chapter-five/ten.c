@@ -2,7 +2,6 @@
 #include <stdlib.h> /* for atof */
 #include <ctype.h>
 #include <math.h> /* for fmod */
-#include <string.h>
 
 /*
 * Exercise 1-10 of The C Programming Language
@@ -19,7 +18,7 @@ evaluates 2 X (3 + 4)
 #define MAXVAL 100  /* maximum depth of val stack */
 #define BUFSIZE 100
 
-int getop(char s[]);
+int getop(char []);
 void push(double);
 double pop(void);
 
@@ -27,7 +26,7 @@ int sp = 0;         /* next free stack position */
 double val[MAXVAL]; /* value stack */
 
 int getch(void);
-void ungetch(int);
+void ungetch(char[]);
 
 char buf[BUFSIZE]; /* buffer for ungetch */
 int bufp = 0;     /* next free position in buf */
@@ -35,13 +34,16 @@ int bufp = 0;     /* next free position in buf */
 /* reverse Polish calculator */
 int main(int argc, char **argv)
 {
-  int type;
-  double op2;
+  // int type;
+
+	double op2;
 	char s[MAXOP];
 
-	if (--argc > 0) { /* need more than 0 arguments to calculate something */
-		while ((type = getop(*++argv))) { /* arguments go here */
-    switch (type) {
+	while(--argc > 0)
+	{
+			ungetch(" ");
+			ungetch(*++argv);
+			switch(getop(s)) {
       case NUMBER:
         push(atof(s));
         break;
@@ -79,12 +81,9 @@ int main(int argc, char **argv)
       default:
         printf("error: unknown command! %s\n", s);
         break;
-      }
 		}
 	}
-	else {
-		printf("error: not enough arguments! %s\n", *argv);
-	}
+	printf("\t%.8g\n", pop());
 	return 0;
 }
 
@@ -135,9 +134,6 @@ int getop(char s[])
     }
   }
   s[i] = '\0';
-  if (c != EOF) {
-    ungetch(c);
-  }
   return NUMBER;
 }
 
@@ -146,12 +142,12 @@ int getch(void)
   return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
-void ungetch(int c)
+void ungetch(char argv[])
 {
   if (bufp >= BUFSIZE) {
     printf("ungetch: too many characters! \n");
   }
   else {
-    buf[bufp++] = c;
+    buf[bufp++] = *argv;
   }
 }
