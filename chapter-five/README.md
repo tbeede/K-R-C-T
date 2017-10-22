@@ -4,5 +4,5 @@
 - [X] Four
 - [ ] Five
 - [X] Six - Reverse
-- [ ] Seven
+- [X] Seven
 - [X] Ten
