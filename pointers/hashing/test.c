@@ -166,7 +166,7 @@ int main() {
                 }
             }
             count[minIndex]++;
-            printf("Keys: %i Load Factor: %2.1f Function: %s Value: %3.1f\n",i,j,names[minIndex],min );
+            printf("Keys: %i Load Factor: %2.1f Function: %s Value: %3.1f\n",i,1/j,names[minIndex],min );
         }
     }
     for(i=0; i < 10; i++) {
