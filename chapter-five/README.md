@@ -1,8 +1,8 @@
 # Chapter Five: Pointers and Arrays
 
-- [ ] Two
-- [ ] Four
+- [X] Two
+- [X] Four
 - [ ] Five
-- [ ] Six - Reverse
-- [ ] Seven
-- [ ] Ten
+- [X] Six - Reverse
+- [X] Seven
+- [X] Ten

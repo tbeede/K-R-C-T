@@ -8,32 +8,33 @@
 * rather than calling alloc to maintain storage.
 * How much faster is the program?
 *
-* This entire solution was copied from pg. 108 with adjustments made
+* This entire solution was copied from pg. 108 and 119 with adjustments made
 * to solve the problem.
 */
 
 #define MAXLINES 5000
+#define ALLOC_SIZE 1000
 
 char *lineptr[MAXLINES];
+char linearray[ALLOC_SIZE]; /* this is the array to store lines */
 
 int readlines(char *lineptr[], char linearray[], int nlines);
 void writelines(char *lineptr[], int nlines);
-
 void qsort(char *lineptr[], int left, int right);
 
-#define ALLOC_SIZE 1000
-
-int main()
+int main(int argc, char **argv)
 {
 	int nlines;
-	char linearray[ALLOC_SIZE]; /* this is the array to store lines */
 
-	if ((nlines = readlines(lineptr, linearray, MAXLINES)) >= 0) {
-		qsort (lineptr, 0, nlines - 1);
+	if((nlines = readlines(lineptr, linearray, MAXLINES)) >= 0)
+	{
+		qsort(lineptr, 0, nlines-1);
 		writelines(lineptr, nlines);
 		return 0;
-	} else {
-		printf ("error: input too big to sort\n");
+	}
+	else
+	{
+		printf("error: input too big to sort \n");
 		return 1;
 	}
 }

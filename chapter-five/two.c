@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<ctype.h>
-#include <math.h>
 
 /*
 * Exercise 5-2 of The C Programming Language
@@ -10,6 +9,8 @@
 * getfloat return as its function value?
 *
 * ANSWER: It returns an int.
+*
+* I DO NOT UNDERSTAND WHAT THIS PROGRAM IS SUPPOSED TO DO
 */
 
 #define SIZE 1000
@@ -30,33 +31,34 @@ int main(int argc, char **argv)
 
 int getfloat(float *pn)
 {
-    int c, sign;
+	int c, sign;
 
-    while(isspace(c = getch())) {
-        ;
+  while(isspace(c = getch())) {
+      ;
 
-    if(!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.') {
-        ungetch(c);
+			if(!isdigit(c) && c != EOF && c != '+' && c != '-' && c != '.') {
+				ungetch(c);
         return 0;
     }
 	}
-    sign = (c == '-') ? -1: 1;
+	sign = (c == '-') ? -1: 1;
 
-    if( c == '+' || c == '-') {
+	if( c == '+' || c == '-') {
+		c = getch();
+	}
+
+	for(*pn = 0.0; isdigit(c); c = getch()) { // Modify *pn to handle floats
+		*pn = 10 * *pn + (c - '0');
+
+		if(c == '.') {
 			c = getch();
 		}
-		for(*pn = 0.0; isdigit(c); c = getch()) {
-			*pn = 10 * *pn + (c - '0');
 
-			if(c == '.') {
-				c = getch();
-			}
-
-			if(c != EOF) {
-				ungetch(c);
-			}
+		if(c != EOF) {
+			ungetch(c);
 		}
-		return c;
+	}
+	return c;
 }
 
 //from pg. 79
@@ -67,15 +69,15 @@ int bufp = 0;
 
 int getch(void)
 {
-    return (bufp > 0) ? buf[--bufp] : getchar();
+	return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
 void ungetch(int c)
 {
-    if(bufp >= BUFSIZE) {
-			printf("ungetch: too many characters\n");
-		}
-    else {
-			buf[bufp++]=c;
-		}
+  if(bufp >= BUFSIZE) {
+		printf("ungetch: too many characters\n");
+	}
+  else {
+		buf[bufp++]=c;
+	}
 }
